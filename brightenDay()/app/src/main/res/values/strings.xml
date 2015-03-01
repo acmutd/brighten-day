@@ -4,5 +4,7 @@
     <string name="app_name">brightenDay()</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_moods">Moods</string>
+    <string name="edit_message">"Name</string>
 
 </resources>

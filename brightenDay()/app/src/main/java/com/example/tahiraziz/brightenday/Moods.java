@@ -1,28 +1,32 @@
 package com.example.tahiraziz.brightenday;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.EditText;
-import android.content.Intent;
+import android.widget.TextView;
+import com.example.tahiraziz.brightenday.R;
 
 
-public class Home extends ActionBarActivity {
-    public final static String EXTRA_MESSAGE = "com.exmaple.tahiraziz.brightenday.MESSAGE";
+public class Moods extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+        Intent intent = getIntent();
+        String message = intent.getStringExtra(Home.EXTRA_MESSAGE);
+        TextView textView = new TextView(this);
+        textView.setTextSize(40);
+        textView.setText(message);
+        setContentView(textView);
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.home, menu);
+        getMenuInflater().inflate(R.menu.moods, menu);
         return true;
     }
 
@@ -36,15 +40,5 @@ public class Home extends ActionBarActivity {
             return true;
         }
         return super.onOptionsItemSelected(item);
-    }
-
-    /** Called when the user clicks the Submit button */
-    public void showMoods(View view) {
-        Intent intent = new Intent(this, Moods.class);
-        EditText editText = (EditText) findViewById(R.id.editText);
-        String message = editText.getText().toString();
-        intent.putExtra(EXTRA_MESSAGE, message);
-        startActivity(intent);
-
     }
 }
